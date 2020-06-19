@@ -1,0 +1,16 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+```{r}
+library(DMwR)
+x <- read.csv("/Users/macbookair/Desktop/HW3/Data/test.csv",skip=1)
+x1 <- as.matrix(x)
+x2 <- na.omit(x1)
+manyNAs(x2, nORp = 0.2) 
+knnImputation(x2, k = 3, scale = T, meth = "median", distData = NULL)
+write.table(x2, file = "/Users/macbookair/Desktop/HW3/Data/reslut.csv", append = FALSE, quote = TRUE, sep = ",", eol = "\n", na = "NA", row.names = TRUE, col.names = TRUE)
+```
+
